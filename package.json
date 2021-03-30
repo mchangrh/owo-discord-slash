@@ -1,0 +1,29 @@
+{
+  "name": "owo-discord-slash",
+  "version": "1.0.0",
+  "description": "owoify with slash commands",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mchangrh/owo-discord-slash.git"
+  },
+  "author": "Michael Chang <michael@mchang.name>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/mchangrh/owo-discord-slash/issues"
+  },
+  "homepage": "https://github.com/mchangrh/owo-discord-slash#readme",
+  "dependencies": {
+    "discord-interactions": "^2.0.2",
+    "slash-commands": "^1.4.0"
+  },
+  "devDependencies": {
+    "deep-equal": "^2.0.5",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.1",
+    "webpack": "^4.46.0"
+  }
+}
