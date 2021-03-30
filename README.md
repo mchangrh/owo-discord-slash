@@ -10,9 +10,9 @@ Highlights:
 `/owo`
 
 ## How to selfhost
-- change `wrangler.toml` to reflect your cloudflare account ID
+- change `wrangler.toml` to reflect your Cloudflare account & route
 - fill in `wrangler secrets put` with:
-  - your Client ID in `APPID`
-  - **bot token** in `TOKEN`
-  - public key in `PUBLICKEY` 
+  - your Client ID in `CLIENT_ID`
+  - **bot token** in `BOT_TOKEN`
+  - public key in `CLIENT_PUBLIC_KEY` 
   - Optionally `GUILDID` for guild-targeted commands.

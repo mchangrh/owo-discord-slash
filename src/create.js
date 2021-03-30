@@ -18,9 +18,9 @@ module.exports.commands = commands
 
 async function createInteraction() { 
   const interaction = new DiscordInteractions({
-    applicationId: APPID,
-    authToken: TOKEN,
-    publicKey: PUBLICKEY,
+    applicationId: CLIENT_ID,
+    authToken: BOT_TOKEN,
+    publicKey: CLIENT_PUBLIC_KEY,
   });
   for (command in Object.keys(commands)) {
     await interaction

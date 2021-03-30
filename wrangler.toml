@@ -3,3 +3,7 @@ type = "webpack"
 account_id = "d5ccf1d783709bbdc23fc29786f38736"
 workers_dev = true
 webpack_config = "webpack.config.js"
+
+[env.production]
+zone_id = "5b53c263c94e839f6bc62652ec3fc3d8"
+route = "owo-bot.mchang.icu/*"
