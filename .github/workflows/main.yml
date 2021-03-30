@@ -18,7 +18,6 @@ jobs:
         uses: cloudflare/wrangler-action@1.2.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
+          SECRETS: VERSION
         env:
-          APPID: ${{ secrets.APPID }}
-          TOKEN: ${{ secrets.TOKEN }}
-          PUBLICKEY: ${{ secrets.PUBLICKEY }}
+          VERSION: ${{ github.sha }}

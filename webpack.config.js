@@ -1,3 +1,3 @@
 module.exports = {
-    entry: './src/worker.js'
+  entry: './src/index.js'
 };

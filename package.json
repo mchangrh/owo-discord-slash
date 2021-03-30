@@ -29,6 +29,8 @@
     "slash-commands": "^1.4.0"
   },
   "devDependencies": {
+    "deep-equal": "^2.0.5",
+    "dotenv": "^8.2.0",
     "webpack": "^5.28.0"
   }
 }
