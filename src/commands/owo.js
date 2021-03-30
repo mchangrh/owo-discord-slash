@@ -1,17 +1,6 @@
-const { ApplicationCommandOptionType } = require('slash-commands');
 const { InteractionResponseType } = require('discord-interactions');
 
 module.exports = {
-    name: 'owo',
-    description: 'owo-ify',
-    options: [
-        {
-            name: 'message',
-            description: 'Your message',
-            type: ApplicationCommandOptionType.STRING,
-            required: true,
-        }
-    ],
     execute: async ({ interaction, response }) => {
         // Get the raw values from Discord
         const rawText = ((interaction.data.options.find(opt => opt.name === 'message') || {}).value || '').trim()

@@ -1,17 +1,25 @@
 {
   "name": "owo-discord-slash",
   "version": "1.0.0",
-  "description": "owoify with slash commands",
-  "main": "src/index.js",
+  "description": "owoify slash command",
+  "main": "webpack.config.js",
   "scripts": {
-    "dev": "wrangler dev"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mchangrh/owo-discord-slash.git"
   },
-  "author": "Michael Chang <michael@mchang.name>",
-  "license": "Apache-2.0",
+  "keywords": [
+    "discord.js",
+    "discord",
+    "owo",
+    "discord-slash-commands",
+    "discord-interactions",
+    "cloudflare-workers"
+  ],
+  "author": "Michael Chang",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mchangrh/owo-discord-slash/issues"
   },
@@ -21,9 +29,6 @@
     "slash-commands": "^1.4.0"
   },
   "devDependencies": {
-    "deep-equal": "^2.0.5",
-    "dotenv": "^8.2.0",
-    "node-fetch": "^2.6.1",
-    "webpack": "^4.46.0"
+    "webpack": "^5.28.0"
   }
 }

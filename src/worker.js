@@ -1,18 +1,10 @@
 const { InteractionType, InteractionResponseType, InteractionResponseFlags, verifyKey } = require('discord-interactions');
-const commands = require('./build/data/commands.json');
+const { commands } = require("./create.js");
 
 // Util to send a JSON response
 const jsonResponse = obj => new Response(JSON.stringify(obj), {
     headers: {
         'Content-Type': 'application/json',
-    },
-});
-
-// Util to send a perm redirect response
-const redirectResponse = url => new Response(null, {
-    status: 301,
-    headers: {
-        'Location': url,
     },
 });
 
@@ -47,14 +39,13 @@ const handleInteraction = async ({ request, wait }) => {
         return new Response(null, { status: 501 });
 
     // Locate the command data
-    const commandData = commands[body.data.id];
-    if (!commandData)
+    const commandName = body.data.name;
+    if (!commands.find(e => e.name === commandName))
         return new Response(null, { status: 404 });
 
     try {
         // Load in the command
-        const command = require(`./commands/${commandData.file}`);
-
+        const command = require(`./commands/${commandName}.js`);
         // Execute
         return await command.execute({ interaction: body, response: jsonResponse, wait });
     } catch (err) {
@@ -76,18 +67,11 @@ const handleInteraction = async ({ request, wait }) => {
 // Process all requests to the worker
 const handleRequest = async ({ request, wait }) => {
     const url = new URL(request.url);
-
     // Send interactions off to their own handler
     if (request.method === 'POST' && url.pathname === '/interactions')
         return await handleInteraction({ request, wait });
-
-    // Otherwise, we only care for GET requests
-    if (request.method !== 'GET')
-        return new Response(null, { status: 404 });
-
-    // Health check route
-    if (url.pathname === '/health')
-        return new Response('OK', {
+    if (url.pathname === '/ping')
+        return new Response('pong', {
             headers: {
                 'Content-Type': 'text/plain',
                 'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
@@ -95,24 +79,6 @@ const handleRequest = async ({ request, wait }) => {
                 'Surrogate-Control': 'no-store',
             },
         });
-    
-    // Invite redirect
-    if (url.pathname === '/invite')
-        return redirectResponse(`https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&scope=applications.commands`);
-
-    // Discord redirect
-    if (url.pathname === '/server')
-        return redirectResponse('https://discord.gg/JgxVfGn');
-
-    // GitHub redirect
-    if (url.pathname === '/github')
-        return redirectResponse('https://github.com/MattIPv4/DNS-over-Discord/');
-
-    // Docs redirect
-    if (url.pathname === '/')
-        return redirectResponse('https://developers.cloudflare.com/1.1.1.1/fun-stuff/dns-over-discord');
-
-    // Not found
     return new Response(null, { status: 404 });
 };
 
