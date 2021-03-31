@@ -1,4 +1,5 @@
 const { InteractionResponseType } = require('discord-interactions');
+const { ApplicationCommandOptionType } = require('slash-commands');
 
 module.exports = {
   name: 'owo',
@@ -7,7 +8,7 @@ module.exports = {
     {
       name: 'message',
       description: 'Your message',
-      type: 3,
+      type: ApplicationCommandOptionType.STRING,
       required: true,
     }
   ],

@@ -40,14 +40,14 @@ const handleInteraction = async ({ request, wait }) => {
 
   // Locate the command data
   const commandName = body.data.name;
-  if (!commands.find(e => e.name === commandName))
+  if (!commands.find(e => e === commandName))
     return new Response(null, { status: 404 });
 
   try {
     // Load in the command
     const command = require(`./commands/${commandName}.js`);
     // Execute
-    return await command.run({ interaction: body, response: jsonResponse, wait });
+    return await command.execute({ interaction: body, response: jsonResponse, wait });
   } catch (err) {
     // Catch & log any errors
     console.log(body);
@@ -110,4 +110,3 @@ addEventListener('fetch', event => {
     throw err;
   }));
 });
-

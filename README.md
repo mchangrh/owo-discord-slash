@@ -6,16 +6,18 @@ Highlights:
 - slash commands
 - Cloudflare workers
  
+***invite link coming soon***
+
 ## How to use
 In discord - `/owo`
 
 ## How to selfhost
 - change `wrangler.toml` to reflect your Cloudflare account & route
-- fill in `wrangler secrets put` with:
+- fill in `wrangler secret put` with:
   - your Client ID in `CLIENT_ID`
-  - **bot token** in `BOT_TOKEN`
   - public key in `CLIENT_PUBLIC_KEY` 
 - add `CF_API_TOKEN` to Github Secrets
 
 ## modifying or adding commands
-run `src/build/index.js` and update `commands` in index.js
+- populate .env
+- run `src/build/index.js` and update `commands` in index.js
