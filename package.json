@@ -1,6 +1,6 @@
 {
   "name": "owo-discord-slash",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "owoify slash command",
   "main": "webpack.config.js",
   "scripts": {
@@ -25,12 +25,12 @@
   },
   "homepage": "https://github.com/mchangrh/owo-discord-slash#readme",
   "dependencies": {
-    "discord-interactions": "^2.0.2",
+    "discord-interactions": "^2.3.0",
     "slash-commands": "^1.4.0"
   },
   "devDependencies": {
     "deep-equal": "^2.0.5",
-    "dotenv": "^8.2.0",
-    "webpack": "^5.28.0"
+    "dotenv": "^10.0.0",
+    "webpack": "^5.43.0"
   }
 }
