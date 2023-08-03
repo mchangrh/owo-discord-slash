@@ -31,6 +31,6 @@
   "devDependencies": {
     "deep-equal": "^2.0.5",
     "dotenv": "^10.0.0",
-    "webpack": "^5.43.0"
+    "webpack": "^5.76.0"
   }
 }
